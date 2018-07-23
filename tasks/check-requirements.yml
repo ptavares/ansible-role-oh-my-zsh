@@ -1,0 +1,10 @@
+- name: Check for git command
+  shell: command -v git >/dev/null 2>&1
+  register: is_git_exist
+  ignore_errors: yes
+
+- assert:
+    that:
+      - is_git_exist is defined
+      - is_git_exist.rc == 0
+    msg: "Git command must be installed"

@@ -1,0 +1,14 @@
+- name: Customize .zshrc for {{ ansible_user }}
+  template:
+    src: zshrc.j2
+    dest: "{{ ansible_env.HOME }}/zshrc-test"
+    backup: yes
+    owner: '{{ ansible_user }}'
+
+- name: Add custom entries into .zshrc
+  lineinfile:
+    line: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/zshrc-test"
+  when: oh_my_zsh_custom_zsh_entries is defined
+  with_items:
+    - "{{ oh_my_zsh_custom_zsh_entries }}"

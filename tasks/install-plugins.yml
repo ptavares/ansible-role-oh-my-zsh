@@ -1,0 +1,33 @@
+- name: Create custom plugin directory
+  file:
+    path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins-custom"
+    state: directory
+    owner: "{{ ansible_user }}"
+  when: oh_my_zsh_custom_plugins_info is defined
+
+- name: "Checkout custom plugins {{ oh_my_zsh_custom_plugins_info }}"
+  git:
+    repo: "{{ item.url }}"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins-custom/{{ item.dir_dest_name }}"
+    force: true
+  when: oh_my_zsh_custom_plugins_info is defined
+  with_items:
+    - "{{ oh_my_zsh_custom_plugins_info }}"
+
+- name: "Create symlink to all plugins"
+  file:
+    src: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins-custom/{{ item.dir_dest_name }}"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/{{ item.dir_dest_name }}"
+    owner: "{{ ansible_user }}"
+    state: link
+  when: oh_my_zsh_custom_plugins_info is defined
+  with_items:
+    - "{{ oh_my_zsh_custom_plugins_info }}"
+
+- name: "Execute extra plugin command"
+  shell: "source ~/.zshrc ; {{ item }}"
+  args:
+    executable: /bin/zsh
+  with_items:
+    - "{{ oh_my_zsh_custom_plugins_command }}"
+  when: oh_my_zsh_custom_plugins_command is defined

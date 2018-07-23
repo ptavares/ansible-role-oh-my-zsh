@@ -1,0 +1,16 @@
+galaxy_info:
+  author: Patrick Tavares
+  description: Ansible role for installating and configuring zsh and oh-my-zsh
+  company: Personal
+  license: MIT
+  min_ansible_version: 2.5
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - oh-my-zsh
+    - zsh
+    - shell
+    - system
+dependencies: []

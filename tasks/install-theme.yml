@@ -1,0 +1,21 @@
+- name: Create custom theme directory
+  file:
+    path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes-custom"
+    state: directory
+    owner: "{{ ansible_user }}"
+  when: oh_my_zsh_custom_theme is defined and oh_my_zsh_custom_theme_info is defined
+
+- name: "Checkout custom theme repository for {{ oh_my_zsh_custom_theme }}"
+  git:
+    repo: "{{ oh_my_zsh_custom_theme_info.url }}"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes-custom/{{ oh_my_zsh_custom_theme_info.dir_dest_name }}"
+    force: true
+  when: oh_my_zsh_custom_theme is defined and oh_my_zsh_custom_theme_info is defined
+
+- name: "Create symlink to {{ oh_my_zsh_custom_theme }}"
+  file:
+    src: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes-custom/{{ oh_my_zsh_custom_theme_info.dir_dest_name }}/{{ oh_my_zsh_custom_theme }}.zsh-theme"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/{{ oh_my_zsh_custom_theme }}.zsh-theme"
+    owner: "{{ ansible_user }}"
+    state: link
+  when: oh_my_zsh_custom_theme is defined and oh_my_zsh_custom_theme_info is defined

@@ -1,0 +1,30 @@
+---
+- name: Install zsh
+  package: name=zsh state=present
+  register: installation
+  become: true
+
+- name: Look for oh-my-zsh
+  stat:
+    path: "~/.oh-my-zsh"
+  register: ohmyzsh
+
+- block:
+   - name: Download oh-my-zsh Installer
+     get_url:
+       url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+       dest: /tmp/zsh-installer.sh
+
+   - name: Install oh-my-zsh
+     script: /tmp/zsh-installer.sh
+  when: ohmyzsh.stat.exists == False and installation|success
+
+
+- debug:
+    msg: "Current ansible_user {{ ansible_user }}"
+
+- name: Change shell for {{ ansible_user }} to /bin/zsh
+  user:
+    name: "{{ ansible_user }}"
+    shell: /bin/zsh
+  become: true

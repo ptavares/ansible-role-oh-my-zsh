@@ -1,0 +1,6 @@
+---
+- include: check-requirements.yml
+- include: install.yml
+- include: install-theme.yml
+- include: install-plugins.yml
+- include: custom-zshrc.yml
