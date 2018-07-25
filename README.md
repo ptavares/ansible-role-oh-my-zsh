@@ -1,6 +1,6 @@
 [![Build Status](https://img.shields.io/travis/ptavares/ansible-role-oh-my-zsh/master.svg?style=flat-square)](https://travis-ci.org/ptavares/ansible-role-oh-my-zsh)
 [![Ansible Role](https://img.shields.io/ansible/role/27782.svg)](https://galaxy.ansible.com/ptavares/ansible-role-oh-my-zsh)
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/ptavares/ansible-role-oh-my-zsh/blob/master/LICENSE)
 
 ansible-role-oh-my-zsh
 =========
