@@ -1,0 +1,7 @@
+- name: "Execute extra plugin command"
+  shell: "source ~/.zshrc ; {{ item }}"
+  args:
+    executable: /bin/zsh
+  with_items:
+    - "{{ oh_my_zsh_custom_plugins_command }}"
+  when: oh_my_zsh_custom_plugins_command is defined
