@@ -1,4 +1,4 @@
-- name: Customize .zshrc for {{ ansible_user }}
+- name: "Customize .zshrc for {{ ansible_user }}"
   template:
     src: zshrc.j2
     dest: "{{ ansible_env.HOME }}/.zshrc"

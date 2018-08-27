@@ -19,11 +19,7 @@
      script: /tmp/zsh-installer.sh
   when: ohmyzsh.stat.exists == False and installation|success
 
-
-- debug:
-    msg: "Current ansible_user {{ ansible_user }}"
-
-- name: Change shell for {{ ansible_user }} to /bin/zsh
+- name: "Change shell for {{ ansible_user }} to /bin/zsh"
   user:
     name: "{{ ansible_user }}"
     shell: /bin/zsh
