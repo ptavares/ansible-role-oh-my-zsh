@@ -1,7 +1,38 @@
 ---
+# Check requirement before installation
 - include: check-requirements.yml
+  tags:
+    - zsh-install-all
+    - zsh-install-requirements
+
+# Install zsh package
 - include: install.yml
+  tags:
+    - zsh-install-all
+    - zsh-install-install
+
+# Download zsh theme
 - include: install-theme.yml
+  tags:
+    - zsh-install-all
+    - zsh-install-install-theme
+
+# Download zsh plugin
 - include: install-plugins.yml
+  tags:
+    - zsh-install-all
+    - zsh-install-install-plugins
+
+# Install zsh conf
 - include: custom-zshrc.yml
+  tags:
+    - zsh-install-all
+    - zsh-install-install-theme
+    - zsh-install-install-plugins
+    - zsh-install-conf
+
+# Configure plugins post-install
 - include: configure-plugins.yml
+    - zsh-install-all
+    - zsh-install-install-plugins
+    - zsh-install-configure-plugins
