@@ -33,6 +33,7 @@
 
 # Configure plugins post-install
 - include: configure-plugins.yml
+  tags:
     - zsh-install-all
     - zsh-install-install-plugins
     - zsh-install-configure-plugins
