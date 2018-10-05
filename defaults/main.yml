@@ -20,6 +20,10 @@ oh_my_zsh_default_theme: robbyrussell
 # example :
 # oh_my_zsh_custom_theme: ptavares
 
+# 3. Add extra theme configuration
+# oh_my_zsh_custom_theme_config:
+#  - MY_CUSTOM_THEME_VAR1=value
+#  - MY_CUSTOM_THEME_VAR2=value2
 
 #####################
 # Section for plugins

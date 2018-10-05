@@ -9,6 +9,12 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="{% if oh_my_zsh_custom_theme is defined %}{{ oh_my_zsh_custom_theme }}{% else %}{{ oh_my_zsh_default_theme }}{% endif %}"
 
+{% if oh_my_zsh_custom_theme_config is defined %}
+# Custom-theme-config
+{{ oh_my_zsh_custom_theme_config | join('
+') }}
+{% endif %}
+
 ZSH_TMUX_AUTOSTART=false
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
