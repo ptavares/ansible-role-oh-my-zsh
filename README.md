@@ -35,6 +35,11 @@ oh_my_zsh_custom_theme_info: { url: "https://github.com/ptavares/zsh-themes.git"
 # oh_my_zsh_custom_theme: oh_my_zsh_custom_theme_name
 # example :
 oh_my_zsh_custom_theme: ptavares
+
+# 3. Add extra theme configuration
+# oh_my_zsh_custom_theme_config:
+#  - MY_CUSTOM_THEME_VAR1=value
+#  - MY_CUSTOM_THEME_VAR2=value2
 ```
 ### Customize plugins
 
