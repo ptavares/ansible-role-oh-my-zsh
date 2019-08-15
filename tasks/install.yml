@@ -20,7 +20,7 @@
 
    - name: Install oh-my-zsh
      script: /tmp/zsh-installer.sh
-  when: ohmyzsh.stat.exists == False and installation|success
+  when: not ohmyzsh.stat.exists and installation|success
 
 - name: "Change shell for {{ ansible_user }} to /bin/zsh"
   user:

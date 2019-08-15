@@ -14,6 +14,7 @@
     repo: "{{ oh_my_zsh_custom_theme_info.url }}"
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes-custom/{{ oh_my_zsh_custom_theme_info.dir_dest_name }}"
     force: true
+    version: master
   when: oh_my_zsh_custom_theme is defined and oh_my_zsh_custom_theme_info is defined
 
 - name: "Create symlink to {{ oh_my_zsh_custom_theme }}"

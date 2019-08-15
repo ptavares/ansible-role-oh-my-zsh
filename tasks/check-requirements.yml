@@ -16,19 +16,3 @@
     name: "{{ packages }}"
     state: present
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
-
-# Check if git command is correctly installed
-- name: Check for git command
-  shell: |
-    set -o pipefail
-    command -v git >/dev/null 2>&1
-  args:
-    executable: /bin/bash
-  register: is_git_exist
-  ignore_errors: yes
-
-- assert:
-    that:
-      - is_git_exist is defined
-      - is_git_exist.rc == 0
-    msg: "Git command must be installed"
