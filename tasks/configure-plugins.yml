@@ -1,5 +1,11 @@
+---
+##################################
+# Configure ZSH Plugins
+##################################
 - name: "Execute extra plugin command"
-  shell: "source ~/.zshrc ; {{ item }}"
+  shell: |
+    set -o pipefail
+    source ~/.zshrc ; {{ item }}
   args:
     executable: /bin/zsh
   with_items:

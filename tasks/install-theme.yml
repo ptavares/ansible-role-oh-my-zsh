@@ -1,3 +1,7 @@
+---
+##################################
+# Install oh-my-zsh theme
+##################################
 - name: Create custom theme directory
   file:
     path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes-custom"

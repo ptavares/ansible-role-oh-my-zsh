@@ -1,3 +1,7 @@
+---
+##################################
+# Customize ZSH file
+##################################
 - name: "Customize .zshrc for {{ ansible_user }}"
   template:
     src: zshrc.j2

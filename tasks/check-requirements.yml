@@ -1,5 +1,29 @@
+---
+##################################
+# Check requirements before insall
+##################################
+- name: Set Required Package
+  set_fact: packages="['bash','git','curl','unzip']"
+
+- name: Ensure dependancies presence's (Debian / Ubuntu)
+  apt:
+    name: "{{ packages }}"
+    state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Ensure dependancies presence's (CentOS / RedHat)
+  yum:
+    name: "{{ packages }}"
+    state: present
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
+
+# Check if git command is correctly installed
 - name: Check for git command
-  shell: command -v git >/dev/null 2>&1
+  shell: |
+    set -o pipefail
+    command -v git >/dev/null 2>&1
+  args:
+    executable: /bin/bash
   register: is_git_exist
   ignore_errors: yes
 

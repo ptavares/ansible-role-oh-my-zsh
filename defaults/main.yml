@@ -28,6 +28,7 @@ oh_my_zsh_default_theme: robbyrussell
 #####################
 # Section for plugins
 #####################
+oh_my_zsh_url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
 
 # Default plugins to load (included with oh-my-zsh installation)
 # All included plugins here : https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins
