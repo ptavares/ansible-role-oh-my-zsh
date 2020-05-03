@@ -12,6 +12,10 @@
     path: "~/.oh-my-zsh"
   register: ohmyzsh
 
+- name: Gather package facts
+  package_facts:
+    manager: auto
+
 - block:
    - name: Download oh-my-zsh Installer
      get_url:
@@ -20,7 +24,7 @@
 
    - name: Install oh-my-zsh
      script: /tmp/zsh-installer.sh
-  when: not ohmyzsh.stat.exists and installation|success
+  when: not ohmyzsh.stat.exists and '"zsh" in ansible_facts.packages'
 
 - name: "Change shell for {{ ansible_user }} to /bin/zsh"
   user:
