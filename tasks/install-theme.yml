@@ -19,8 +19,8 @@
 
 - name: "Create symlink to {{ oh_my_zsh_custom_theme }}"
   file:
-    src: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes-custom/{{ oh_my_zsh_custom_theme_info.dir_dest_name }}/{{ oh_my_zsh_custom_theme }}.zsh-theme"
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/{{ oh_my_zsh_custom_theme }}.zsh-theme"
+    src: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes-custom/{{ oh_my_zsh_custom_theme_info.dir_dest_name }}"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/{{ oh_my_zsh_custom_theme_info.dir_dest_name }}"
     owner: "{{ ansible_user }}"
     state: link
   when: oh_my_zsh_custom_theme is defined and oh_my_zsh_custom_theme_info is defined
