@@ -3,7 +3,9 @@
 # Install ZSH and oh-my-zsh
 ##################################
 - name: Install zsh
-  package: name=zsh state=present
+  package:
+    name: zsh
+    state: present
   register: installation
   become: true
 
