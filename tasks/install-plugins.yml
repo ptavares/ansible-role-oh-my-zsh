@@ -14,7 +14,7 @@
     repo: "{{ item.url }}"
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins-custom/{{ item.dir_dest_name }}"
     force: true
-    version: master
+    update: true
   when: oh_my_zsh_custom_plugins_info is defined
   with_items:
     - "{{ oh_my_zsh_custom_plugins_info }}"
